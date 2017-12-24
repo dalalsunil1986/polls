@@ -18,6 +18,6 @@ class VotesController < ApplicationController
   end
 
   def poll
-    @poll ||= Poll.find(params[:poll_id])
+    @poll ||= params[:poll_id] == 'newest' ? Poll.last : Poll.find(params[:poll_id])
   end
 end
