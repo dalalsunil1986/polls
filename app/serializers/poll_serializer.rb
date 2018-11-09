@@ -10,7 +10,7 @@ class PollSerializer <  ActiveModel::Serializer
         choice: choice.text,
         votes: choice.votes.count
       }
-    end
+    end.sort {|a,b| b[:votes] <=> a[:votes]}
   end
 
 end
